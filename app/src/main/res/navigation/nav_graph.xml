@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_dailyActivityList"
+            app:destination="@id/dailyActivityList" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -28,4 +31,9 @@
             android:name="myArg"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/dailyActivityList"
+        android:name="com.example.timetable_app.DailyActivityList"
+        android:label="fragment_daily_activity_list"
+        tools:layout="@layout/fragment_daily_activity_list" />
 </navigation>

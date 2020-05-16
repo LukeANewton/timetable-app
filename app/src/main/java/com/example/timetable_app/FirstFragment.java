@@ -38,6 +38,14 @@ public class FirstFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.button_to_activity_list).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(FirstFragment.this).navigate(
+                        FirstFragmentDirections.actionFirstFragmentToDailyActivityList());
+            }
+        });
+
         view.findViewById(R.id.toast_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
