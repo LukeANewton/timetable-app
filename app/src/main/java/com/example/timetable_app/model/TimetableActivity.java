@@ -17,10 +17,10 @@ public class TimetableActivity {
     //a timestamp of when the activity was last updated
     private Date timestamp;
     //a collection of tags that describe the activity
-    private HashSet<String> tags;
+    private HashSet<ActivityTag> tags;
 
     public TimetableActivity(String name, String notes, Date startTime,
-                             long durationMinutes, Date timestamp, HashSet<String> tags) {
+                             long durationMinutes, Date timestamp, HashSet<ActivityTag> tags) {
         this.name = name;
         this.notes = notes;
         this.startTime = startTime;
@@ -77,16 +77,16 @@ public class TimetableActivity {
         return tags;
     }
 
-    public void setTags(HashSet<String> tags) {
+    public void setTags(HashSet<ActivityTag> tags) {
         this.tags = tags;
         this.setTimestamp();
     }
 
-    public void addTag(String tag) {
+    public void addTag(ActivityTag tag) {
         this.tags.add(tag);
     }
 
-    public void removeTag(String tag) {
+    public void removeTag(ActivityTag tag) {
         this.tags.remove(tag);
     }
 
