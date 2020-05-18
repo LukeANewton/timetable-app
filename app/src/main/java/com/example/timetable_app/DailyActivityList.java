@@ -57,7 +57,8 @@ public class DailyActivityList extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
+        //get the activities for the day
+        List<>
 
     }
 
