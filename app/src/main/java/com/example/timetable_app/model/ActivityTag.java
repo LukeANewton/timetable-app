@@ -15,7 +15,7 @@ public enum ActivityTag {
         this.description = description;
     }
 
-    String getDescription(){
+    public String getDescription(){
         return this.description;
     }
 }

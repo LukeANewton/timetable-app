@@ -80,6 +80,11 @@ public class DailyActivityList extends Fragment {
                 Calendar.getInstance().getTime(), new HashSet<>(
                 Collections.singleton(ActivityTag.MEAL))
         ));
+        activities.add(new TimetableActivity("TV",
+                "", Calendar.getInstance().getTime(), 90,
+                Calendar.getInstance().getTime(), new HashSet<>(
+                Collections.singleton(ActivityTag.RECREATION))
+        ));
 
         //add activities to view
         final ListView listview = fragmentDailyActivityListLayout.findViewById(R.id.day_activity_list);

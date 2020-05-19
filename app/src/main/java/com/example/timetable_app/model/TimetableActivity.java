@@ -74,7 +74,7 @@ public class TimetableActivity {
         this.timestamp = Calendar.getInstance().getTime();
     }
 
-    public HashSet getTags() {
+    public HashSet<ActivityTag> getTags() {
         return tags;
     }
 
@@ -104,10 +104,10 @@ public class TimetableActivity {
         else
             s.append(notes);
 
-        s.append("\n\n").append("Start Time: ").append(sdf.format(startTime)).append("\n\n");
+        s.append("\n\n").append("Start Time: ").append(sdf.format(startTime)).append("\n");
 
         if(durationMinutes > 0)
-            s.append("End Time: ").append(sdf.format(new Date(startTime.getTime() + (durationMinutes * NUM_MILLISECONDS_IN_ONE_MINUTE)))).append('\n');
+            s.append("End Time: ").append(sdf.format(new Date(startTime.getTime() + (durationMinutes * NUM_MILLISECONDS_IN_ONE_MINUTE)))).append("\n\n");
 
         s.append("Tags: ");
 
