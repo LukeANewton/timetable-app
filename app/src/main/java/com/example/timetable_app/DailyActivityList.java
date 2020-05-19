@@ -1,30 +1,25 @@
 package com.example.timetable_app;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.timetable_app.adapters.TimetableActivityToListViewAdapter;
 import com.example.timetable_app.model.ActivityTag;
 import com.example.timetable_app.model.TimetableActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 /**
@@ -54,7 +49,6 @@ public class DailyActivityList extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment DailyActivityList.
      */
-    // TODO: Rename and change types and number of parameters
     public static DailyActivityList newInstance(String param1, String param2) {
         DailyActivityList fragment = new DailyActivityList();
         Bundle args = new Bundle();
@@ -83,17 +77,14 @@ public class DailyActivityList extends Fragment {
         List<TimetableActivity> activities = new ArrayList<>();
         activities.add(new TimetableActivity("Lunch",
                 "", Calendar.getInstance().getTime(), 60,
-                Calendar.getInstance().getTime(), new HashSet<ActivityTag>(
+                Calendar.getInstance().getTime(), new HashSet<>(
                 Collections.singleton(ActivityTag.MEAL))
         ));
-        List<String> list = new ArrayList<>();
-        for(TimetableActivity activity : activities)
-            list.add(activity.toString());
 
         //add activities to view
-        final ListView listview = (ListView) fragmentDailyActivityListLayout.findViewById(R.id.day_activity_list);
-        final StableArrayAdapter adapter = new StableArrayAdapter(this.getContext(),
-                android.R.layout.simple_list_item_1, list);
+        final ListView listview = fragmentDailyActivityListLayout.findViewById(R.id.day_activity_list);
+        final TimetableActivityToListViewAdapter adapter = new TimetableActivityToListViewAdapter(this.getContext(),
+                android.R.layout.simple_list_item_1, activities);
         listview.setAdapter(adapter);
 
 
@@ -110,29 +101,5 @@ public class DailyActivityList extends Fragment {
                 myToast.show();
             }
         });
-    }
-
-    private class StableArrayAdapter extends ArrayAdapter<String> {
-        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
-
-        public StableArrayAdapter(Context context, int textViewResourceId,
-                                  List<String> objects) {
-            super(context, textViewResourceId, objects);
-            for (int i = 0; i < objects.size(); ++i) {
-                mIdMap.put(objects.get(i), i);
-            }
-        }
-
-        @Override
-        public long getItemId(int position) {
-            String item = getItem(position);
-            return mIdMap.get(item);
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return true;
-        }
-
     }
 }
