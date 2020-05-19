@@ -33,7 +33,8 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 int currentCount = Integer.parseInt(showCountTextView.getText().toString());
-                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount);
+                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
+                        FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount);
                 NavHostFragment.findNavController(FirstFragment.this).navigate(action);
             }
         });

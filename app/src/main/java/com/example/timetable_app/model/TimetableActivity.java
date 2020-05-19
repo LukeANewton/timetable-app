@@ -1,5 +1,6 @@
 package com.example.timetable_app.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
@@ -79,7 +80,6 @@ public class TimetableActivity {
 
     public void setTags(HashSet<ActivityTag> tags) {
         this.tags = tags;
-        this.setTimestamp();
     }
 
     public void addTag(ActivityTag tag) {
@@ -93,17 +93,28 @@ public class TimetableActivity {
     @Override
     public String toString() {
         final int NUM_MILLISECONDS_IN_ONE_MINUTE = 60000;
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 
         StringBuilder s = new StringBuilder();
-        s.append(name).append('\n')
-                .append("Notes:\n").append(notes).append('\n')
-                .append("Start Time:").append(startTime).append('\n');
+        s.append(name).append("\n\n")
+                .append("Notes:\n\t");
+
+        if(notes.isEmpty())
+            s.append("N/A");
+        else
+            s.append(notes);
+
+        s.append('\n').append("Start Time: ").append(sdf.format(startTime)).append('\n');
 
         if(durationMinutes > 0)
-            s.append("End Time:").append(new Date(startTime.getTime() + (durationMinutes * NUM_MILLISECONDS_IN_ONE_MINUTE))).append('\n');
+            s.append("End Time: ").append(sdf.format(new Date(startTime.getTime() + (durationMinutes * NUM_MILLISECONDS_IN_ONE_MINUTE)))).append('\n');
 
-        s.append("Tags:").append(tags).append('\n')
-                .append("last edited:").append(timestamp);
+        s.append("Tags: ");
+
+        for(ActivityTag tag: tags)
+            s.append(tag.getDescription() + " ");
+
+        s.append('\n').append("last edited: ").append(sdf.format(timestamp));
 
        return s.toString();
     }
