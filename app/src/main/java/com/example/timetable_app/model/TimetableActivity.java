@@ -104,7 +104,7 @@ public class TimetableActivity {
         else
             s.append(notes);
 
-        s.append('\n').append("Start Time: ").append(sdf.format(startTime)).append('\n');
+        s.append("\n\n").append("Start Time: ").append(sdf.format(startTime)).append("\n\n");
 
         if(durationMinutes > 0)
             s.append("End Time: ").append(sdf.format(new Date(startTime.getTime() + (durationMinutes * NUM_MILLISECONDS_IN_ONE_MINUTE)))).append('\n');
@@ -112,9 +112,9 @@ public class TimetableActivity {
         s.append("Tags: ");
 
         for(ActivityTag tag: tags)
-            s.append(tag.getDescription() + " ");
+            s.append(tag.getDescription()).append(" ");
 
-        s.append('\n').append("last edited: ").append(sdf.format(timestamp));
+        s.append("\n\n").append("last edited: ").append(sdf.format(timestamp));
 
        return s.toString();
     }

@@ -4,7 +4,7 @@ public enum ActivityTag {
     RECREATION("recreation"),
     CHORES("chores"),
     HYGIENE("hygiene"),
-    MEAL("MEAL"),
+    MEAL("meal"),
     PROJECTS("self projects"),
     SCHOOL("school-related"),
     WORK("work-related");
