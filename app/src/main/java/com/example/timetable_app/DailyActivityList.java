@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -102,8 +103,8 @@ public class DailyActivityList extends Fragment {
         view.findViewById(R.id.add_activity_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast myToast = Toast.makeText(getActivity(), "Add", Toast.LENGTH_SHORT);
-                myToast.show();
+                NavHostFragment.findNavController(DailyActivityList.this).navigate(
+                        R.id.addActivity, null);
             }
         });
     }

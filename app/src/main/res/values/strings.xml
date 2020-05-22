@@ -24,4 +24,12 @@
     <string name="notes">Notes:</string>
     <string name="last_edited">Last Edited:</string>
     <string name="name">Name</string>
+    <string name="add_activity_name">Name:</string>
+    <string name="add_activity_notes">Notes:</string>
+    <string name="add_activity_start_time">Start Time:</string>
+    <string name="add_activity_end_time">End Time:</string>
+    <string name="add_activity_tags">Tags:</string>
+    <string name="add_activity_name_value">Name</string>
+    <string name="add_activity_notes_value">Notes</string>
+    <string name="set_time">Set Time</string>
 </resources>
